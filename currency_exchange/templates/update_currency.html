@@ -1,0 +1,9 @@
+{% extends 'home.html' %}
+
+{% block refresh %}
+<form method="post" action="{% url 'currency_exchange:save_currencies' %}">
+    {% csrf_token %}
+    {{ form.as_p }}
+    <button type="submit">Update Currency Rates</button>
+</form>
+{% endblock %}

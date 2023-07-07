@@ -1,0 +1,12 @@
+<form method="post" action="{% url 'currency_exchange:home' %}">
+  {% csrf_token %}
+  {{ form.as_p }}
+  <button type="submit">Convert</button>
+</form>
+{% if converted_amount %}
+  <p>Converted Amount: {{ converted_amount }} {{ conversion_rate }}</p>
+{% endif %}
+{% block refresh %}{% endblock %}
+{% if error_message %}
+  <p>{{ error_message }}</p>
+{% endif %}
